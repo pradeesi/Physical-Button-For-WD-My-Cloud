@@ -2,7 +2,7 @@
 ##--- Author: Pradeep Singh
 ##--- Date: 2nd April 2016
 ##--- Version: 1.0
-##--- WD MY Cloud Firmware: nodemcu_float_0.9.6-dev_20150704.bin
+##--- WD MY Cloud Firmware: WDMyCloud v04.04.02-105 : Core F/W
 ##--- Python Ver: 2.7
 ##--- Description: This python code will listen on MQTT and shutdown WD MY Cloud
 ##--- This file includes print statements to make it easy to troubleshoot the connection
