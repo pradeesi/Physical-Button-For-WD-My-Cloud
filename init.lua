@@ -1,3 +1,12 @@
+
+------------------------------------------
+--- Author: Pradeep Singh
+--- Date: 2nd April 2016
+--- Version: 1.0
+--- NodeMCU Firmware: nodemcu_float_0.9.6-dev_20150704.bin
+--- Description: This is sample code to send MQTT msg to WD My Cloud NAS to shut it down.
+------------------------------------------
+
 -----------------------------------------------
 --- Set Variables ---
 -----------------------------------------------
@@ -13,7 +22,7 @@ local int BUTTON_GPIO_PIN = 3
 MQTT_BROKER = "iot.eclipse.org"
 MQTT_BROKER_PORT = 1883
 MQTT_BROKER_SECURE = 0
-MQTT_PUBLISH_MESSAGE = "Shutdown"
+MQTT_PUBLISH_MESSAGE = "0"
 MQTT_CLIENT_ID = (wifi.sta.getmac())
 -----------------------------------------------
 
