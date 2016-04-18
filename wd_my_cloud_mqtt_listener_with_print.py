@@ -17,7 +17,6 @@ import os, socket
 ##==================================================##
 ##---------------- SET VARIABLES -------------------##
 ##==================================================##
-
 ##--- Change following 3 variables ---
 USER_NAME = "put UI User Name Here" 
 PASSWORD = "put UI User Password Here"
@@ -26,7 +25,28 @@ MQTT_TOPIC = "put MQTT Topic here"
 MQTT_HOST = "iot.eclipse.org"
 MQTT_PORT = 1883
 MQTT_KEEPALIVE_INTERVAL = 45
+INTERNET_CONNECTION_TEST_URL = 'http://www.google.com/'
 ##==================================================##
+
+
+##==================================================================================##
+##----- Test Internet Connection Before Proceeding Further -----##
+##----- As we are using public MQTT Broker, Internet connectivity is Must -----##
+##==================================================================================##
+def is_connected_to_internet(url, timeout=5):
+    try:
+        _ = requests.get(url, timeout=timeout)
+        return True
+    except requests.ConnectionError:
+		pass
+    return False
+
+while True:
+	if (is_connected_to_internet(INTERNET_CONNECTION_TEST_URL)):
+		break
+	else:
+		time.sleep(60)
+##==================================================================================##
 
 
 
@@ -511,11 +531,11 @@ def on_connect(mosq, obj, rc):
 def on_message(mosq, obj, msg):
 	try:
 		if (str(MQTT_TOPIC) == str(msg.topic)):
-			if (str(msg.payload) == "0"):
+			if (str(msg.payload) == "Shutdown"):
 				my_Cloud_Shutdown()
-			elif (str(msg.payload) == "1"):
+			elif (str(msg.payload) == "Restart"):
 				my_Cloud_Restart()
-			elif (str(msg.payload) == "2"):
+			elif (str(msg.payload) == "Unmount"):
 				my_Cloud_UnMount_USB()
 	except:
 		pass
@@ -533,8 +553,3 @@ mqttc.connect(MQTT_HOST, MQTT_PORT, MQTT_KEEPALIVE_INTERVAL)
 # Continue monitoring the incoming messages for subscribed topic
 mqttc.loop_forever()
 ##==================================================##
-
-
-
-
-
