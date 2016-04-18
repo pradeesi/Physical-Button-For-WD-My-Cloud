@@ -531,11 +531,11 @@ def on_connect(mosq, obj, rc):
 def on_message(mosq, obj, msg):
 	try:
 		if (str(MQTT_TOPIC) == str(msg.topic)):
-			if (str(msg.payload) == "Shutdown"):
+			if (str(msg.payload) == "0"):
 				my_Cloud_Shutdown()
-			elif (str(msg.payload) == "Restart"):
+			elif (str(msg.payload) == "1"):
 				my_Cloud_Restart()
-			elif (str(msg.payload) == "Unmount"):
+			elif (str(msg.payload) == "2"):
 				my_Cloud_UnMount_USB()
 	except:
 		pass
