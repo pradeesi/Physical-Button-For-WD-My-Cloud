@@ -10,9 +10,12 @@
 -----------------------------------------------
 --- Variables Block ---
 -----------------------------------------------
---- WIFI CONFIGURATION ---
-WIFI_SSID = "joker"
-WIFI_PASSWORD = "avengers"
+--- CHANGE FOLLOWING 3 VARIABLES ---
+WIFI_SSID = "your wifi SSID"
+WIFI_PASSWORD = "your wifi password"
+MQTT_PUBLISH_TOPIC = "your MQTT Topic"
+
+
 WIFI_SIGNAL_MODE = wifi.PHYMODE_N
 
 --- WiFi IP CONFIG (Leave blank to use DHCP) ---
@@ -26,8 +29,7 @@ MQTT_BROKER = "iot.eclipse.org"
 MQTT_BROKER_PORT = "1883"
 MQTT_BROKER_SECURE = 0
 
-MQTT_PUBLISH_TOPIC = "/india/karnataka/bangalore/ecity/ajmera/avenye/7"
-MQTT_PUBLISH_MESSAGE = "Shutdown"
+MQTT_PUBLISH_MESSAGE = "0"
 MQTT_PUBLISH_TOPIC_QoS = 0
 MQTT_PUBLISH_TOPIC_RETAIN = 0
 
